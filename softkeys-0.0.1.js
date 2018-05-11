@@ -82,6 +82,7 @@
             bindKeyPress = function(obj) {
                 obj.children(settings.buttonWrapper).on('click touchstart', function(event){
                     event.preventDefault();
+                    settings.target = $('.softkeys').attr('data-target');
 
                     var character = '',
                         type = $(this).data('type'),

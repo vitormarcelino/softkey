@@ -26,14 +26,29 @@
                 <div class="col-sm-12 jumbotron">
         			<h1>Softkey</h1>
                     <p>A JQuery plugin to generate a software keyboard in JavaScript</p>
+                    <style>
+                        .keyboard {
+                            position: fixed;
+                            bottom: 0;
+                            font-size: 20px;
+                        }
+                        
+                        .softkeys__btn {
+                            padding: 0 1.2em;
+                        }
+                    </style>
                 </div>
             </div>
-                    <form class="row form">
+                    <form class="row form" method="post" action="?send=1">
                         <div class="col-sm-offset-4 col-sm-4 form-group">
-                            <input type="text" name="code" class="form-control input-lg">
+                            <input type="text" name="code" class="form-control input-lg input">
+                        </div>
+                        <div class="col-sm-offset-4 col-sm-4 form-group">
+                            <input type="text" name="email" class="form-control input-lg input">
                         </div>
 
-                        <div class="softkeys" data-target="input[name='code']"></div>
+                        <div class="softkeys keyboard" data-target="input[name='email']" id="key"></div>
+                        <input type="submit" value="Ok" class="btn btn-default"/>
                     </form>
                 </div>
             </div>
@@ -44,6 +59,12 @@
 
         <script>
             $(document).ready(function(){
+                
+                $('.input').click(function(){
+                    var selected = $(this).attr('name');
+                    $('.softkeys').attr('data-target',"input[name='"+selected+"']")
+                });
+                
                 $('.softkeys').softkeys({
                     target : $('.softkeys').data('target'),
                     layout : [
