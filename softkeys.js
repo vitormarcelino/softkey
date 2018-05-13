@@ -57,7 +57,7 @@
                                 break;
 
                             case 'space' :
-                                character = '<span>space</span>';
+                                character = '<span>_</span>';
                                 type = 'space';
                                 styleClass = 'softkeys__btn--space';
                                 break;
